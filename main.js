@@ -1,12 +1,12 @@
 $(document).ready(function () {
-	let rowCount = 0;
 	$('#addBtn').on("click", function () {
-		rowCount++;
+		$("#addBtn").hide();
+		$("#saveBtn").show();
 		let newRow = `
-		<tr class="new-row">
-			<td><input type="text" id="nameField"></td>
-			<td><input type="text" id="priceField"></td>
-			<td><input type="text" id="discountField"></td>
+		<tr>
+			<td class="text-center"><input type="text" id="nameField"></td>
+			<td class="text-center"><input type="text" id="priceField"></td>
+			<td class="text-center"><input type="text" id="discountField"></td>
 			<td class="col-remove"><button type="button" class="btn btn-danger">Remove</button></td>
 		</tr>`;
 		$('tbody').append(newRow);
@@ -14,20 +14,15 @@ $(document).ready(function () {
 
 	$('tbody').on("click", '.btn-danger', function () {
 		$(this).parent('td').parent('tr').remove();
+		$("#saveBtn").hide();
+		$("#addBtn").show();
 	});
 
 	$(".btn-success").on("click", function () {
-		let name = $("#nameField").val();
-		let price = $("#priceField").val();
-		let discount = $("#discountField").val();
-		$(".new-row").remove();
-		let newRow = `
-		<tr>
-			<td class="text-center">${name}</td>
-			<td class="text-center">${price}</td>
-			<td class="text-center">${discount}</td>
-			<td class="col-remove"><button type="button" class="btn btn-danger">Remove</button></td>
-		</tr>`;
-		$('tbody').append(newRow);
+		$("#saveBtn").hide();
+		$("#addBtn").show();
+		$("#nameField").parent("td").html($("#nameField").val());
+		$("#priceField").parent("td").html($("#priceField").val());
+		$("#discountField").parent("td").html($("#discountField").val());
 	});
 });

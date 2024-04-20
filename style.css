@@ -42,3 +42,7 @@ button {
 .container {
 	margin-top: 10rem
 }
+
+.btn-success {
+	display: none;
+}
