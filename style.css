@@ -1,0 +1,39 @@
+html {
+	box-sizing: border-box;
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 3rem;
+}
+
+table,
+td,
+th {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+td {
+	width: 10vw;
+	text-align: center;
+}
+
+table {
+	width: 50vw;
+	margin: auto;
+}
+
+button {
+	padding: 1rem;
+}
+
+.col-remove {
+	border-top-style: hidden;
+	border-bottom-style: hidden;
+	border-right-style: hidden;
+}
+
+.btn-remove {
+	width: 100%;
+}
