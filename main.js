@@ -16,8 +16,12 @@ $(document).ready(function () {
 	});
 
 	$('tbody').on("click", '.btn-danger', function () {
-		// let query = "?query=delete from XlySJ1fRcrvaXkfA where ID=1";
-		// $.get(API_URL + query);
+		let id = $(this).parent("td").parent("tr").children("td:first")[0].innerHTML;
+		let query = `?query=delete from XlySJ1fRcrvaXkfA where ID="${id}"`;
+		console.log(API_URL + query);
+		$.get(API_URL + query).done(function (data) {
+			console.log(data);
+		});
 		$(this).parent('td').parent('tr').remove();
 		$("#saveBtn").hide();
 		$("#addBtn").show();
@@ -32,9 +36,7 @@ $(document).ready(function () {
 			Price: $("#priceField").val(),
 			Discount: $("#discountField").val()
 		};
-		// console.log(data);
 		$.post(API_URL, JSON.stringify(data)).done(function () {
-			// alert("Success");
 			$("#idField").html($("#idField")[0].innerHTML);
 			$("#nameField").parent("td").html($("#nameField").val());
 			$("#priceField").parent("td").html($("#priceField").val());
